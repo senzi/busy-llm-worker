@@ -58,3 +58,47 @@
 - Access-Control-Allow-Origin: *
 - Access-Control-Allow-Methods: POST, OPTIONS
 - Access-Control-Allow-Headers: Content-Type, Authorization
+
+## 示例
+
+### 测试流式响应
+
+```bash
+curl -X POST http://localhost:8787/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer your-token" \
+  -d '{
+    "model": "deepseek-chat",
+    "messages": [{"role": "user", "content": "Hello"}],
+    "temperature": 0.7,
+    "top_p": 1,
+    "n": 1,
+    "stream": true,
+    "stop": null,
+    "max_tokens": 2048,
+    "presence_penalty": 0,
+    "frequency_penalty": 0,
+    "user": "user-123"
+  }'
+``` 
+
+### 测试非流式响应    
+
+```bash
+curl -X POST http://localhost:8787/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer your-token" \
+  -d '{
+    "model": "deepseek-chat",
+    "messages": [{"role": "user", "content": "Hello"}],
+    "temperature": 0.7,
+    "top_p": 1,
+    "n": 1,
+    "stream": false,
+    "stop": null,
+    "max_tokens": 2048,
+    "presence_penalty": 0,
+    "frequency_penalty": 0,
+    "user": "user-123"
+  }'
+```
