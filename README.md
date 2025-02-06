@@ -64,7 +64,7 @@
 ### 测试流式响应
 
 ```bash
-curl -X POST http://localhost:8787/v1/chat/completions \
+curl -X POST http://deepseek.closeai.moe/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer your-token" \
   -d '{
@@ -85,7 +85,7 @@ curl -X POST http://localhost:8787/v1/chat/completions \
 ### 测试非流式响应    
 
 ```bash
-curl -X POST http://localhost:8787/v1/chat/completions \
+curl -X POST http://deepseek.closeai.moe/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer your-token" \
   -d '{
