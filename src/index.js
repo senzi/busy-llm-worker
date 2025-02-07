@@ -6,6 +6,11 @@ export default {
       'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     };
 
+    // 生成 2-10 秒的随机延迟
+    const getRandomDelay = () => {
+      return Math.floor(Math.random() * (10000 - 2000 + 1) + 2000); // 2000-10000ms
+    };
+
     if (request.method === 'OPTIONS') {
       return new Response(null, {
         headers: corsHeaders
@@ -41,6 +46,9 @@ export default {
 
     const model = requestBody.model || 'deepseek-chat';
     const isStream = requestBody.stream === true;
+
+    // 添加随机延迟
+    await new Promise(resolve => setTimeout(resolve, getRandomDelay()));
 
     if (isStream) {
       const streamHeaders = {
